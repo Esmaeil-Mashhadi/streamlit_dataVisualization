@@ -99,12 +99,46 @@
         "documentation": {}
     },
     {
+        "label": "seaborn",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "seaborn",
+        "description": "seaborn",
+        "detail": "seaborn",
+        "documentation": {}
+    },
+    {
+        "label": "matplotlib.pyplot",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "matplotlib.pyplot",
+        "description": "matplotlib.pyplot",
+        "detail": "matplotlib.pyplot",
+        "documentation": {}
+    },
+    {
         "label": "datetime",
         "kind": 6,
         "isExtraImport": true,
         "importPath": "datetime",
         "description": "datetime",
         "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "weather_effects_tab",
+        "importPath": "components.weather_Time_taken.weather_effect_tab",
+        "description": "components.weather_Time_taken.weather_effect_tab",
+        "isExtraImport": true,
+        "detail": "components.weather_Time_taken.weather_effect_tab",
+        "documentation": {}
+    },
+    {
+        "label": "Traffic_effect_tab",
+        "importPath": "components.weather_Time_taken.Traffic_effect_tab",
+        "description": "components.weather_Time_taken.Traffic_effect_tab",
+        "isExtraImport": true,
+        "detail": "components.weather_Time_taken.Traffic_effect_tab",
         "documentation": {}
     },
     {
@@ -357,6 +391,24 @@
         "description": ".venv.Scripts.pywin32_testall",
         "peekOfCode": "failures = []\n# Run a test using subprocess and wait for the result.\n# If we get an returncode != 0, we know that there was an error, but we don't\n# abort immediately - we run as many tests as we can.\ndef run_test(script, cmdline_extras):\n    dirname, scriptname = os.path.split(script)\n    # some tests prefer to be run from their directory.\n    cmd = [sys.executable, \"-u\", scriptname] + cmdline_extras\n    print(\"--- Running '%s' ---\" % script)\n    sys.stdout.flush()",
         "detail": ".venv.Scripts.pywin32_testall",
+        "documentation": {}
+    },
+    {
+        "label": "Traffic_effect_tab",
+        "kind": 2,
+        "importPath": "components.weather_Time_taken.Traffic_effect_tab",
+        "description": "components.weather_Time_taken.Traffic_effect_tab",
+        "peekOfCode": "def Traffic_effect_tab(): \n    st.write('collaboration of trafic , time periods and ordercount')\n    mean_trafic_df = pd.read_csv('./data/visualizations_df/mean_traffic_df.csv')\n    traffic_df = pd.read_csv('./data/visualizations_df/traffic.csv')\n    st.write('mean trafic data frame')\n    st.dataframe(mean_trafic_df) \n    st.info('delivery time collaboration with trafic density ,as expceted lower trafic density makes delivery time faster')\n    fig = px.bar(mean_trafic_df , x='Road_traffic_density' , y='Time_taken(min)')\n    st.plotly_chart(fig)\n    st.info(\"\"\"",
+        "detail": "components.weather_Time_taken.Traffic_effect_tab",
+        "documentation": {}
+    },
+    {
+        "label": "weather_effects_tab",
+        "kind": 2,
+        "importPath": "components.weather_Time_taken.weather_effect_tab",
+        "description": "components.weather_Time_taken.weather_effect_tab",
+        "peekOfCode": "def weather_effects_tab():\n        st.write(\"Weather effects on food delivery time\")\n        weather_df=pd.read_csv('./data/visualizations_df/weather_timeTaken.csv')\n        st.dataframe(weather_df)\n        fig = px.bar(weather_df ,\n                      x='Time_taken(min)', y='Weatherconditions',\n                      text='total_orders', color_continuous_scale='teal' , color='Time_taken(min)', orientation='h')\n        st.plotly_chart(fig)\n        st.info(\"the correlation between weather conditions and total orders\")\n        fig = px.bar(weather_df ,x='total_orders',  y='Time_taken(min)' ,",
+        "detail": "components.weather_Time_taken.weather_effect_tab",
         "documentation": {}
     },
     {

@@ -2,6 +2,8 @@ import streamlit as st
 import pandas as pd 
 import plotly.express as px 
 import datetime
+from components.weather_Time_taken.weather_effect_tab import weather_effects_tab
+from components.weather_Time_taken.Traffic_effect_tab import Traffic_effect_tab
 
 
 st.header('Exploring Food Delivery Insights through Interactive Data Visualizations')
@@ -41,13 +43,14 @@ if st.sidebar.toggle('check'):
     filted_data =st.dataframe(food_df.loc[(food_df['Order_Date']>= start_date) & (food_df['Order_Date']<= end_date)])
 
 if st.sidebar.toggle('Data Set Relations'):
-    tab1, tab2, tab3, tab4, tab5 = st.tabs(["Weather", "Vehicle", "Age-Date", "Date-Orders", "Festival"])
+    st.write('relation menu')
+    tab1, tab2, tab3, tab4, tab5 = st.tabs(["Weather", "Traffic", "Age", "Date", "Festival"])
 
     with tab1:
-        st.write("Weather effects on food delivery time")
+        weather_effects_tab()
 
     with tab2:
-        st.write("Type of vehicle effects on delivery time")
+        Traffic_effect_tab()
 
     with tab3:
         st.write("Relation between age and date")
@@ -57,7 +60,6 @@ if st.sidebar.toggle('Data Set Relations'):
 
     with tab5:
         st.write("Age interest in festivals")
-
 
 
 
