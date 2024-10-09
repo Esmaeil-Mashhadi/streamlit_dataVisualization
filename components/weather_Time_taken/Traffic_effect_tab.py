@@ -4,6 +4,7 @@ import plotly.express as px
 import seaborn as sns 
 import matplotlib.pyplot as plt 
 
+@st.cache_data
 def Traffic_effect_tab(): 
     st.write('collaboration of trafic , time periods and ordercount')
     mean_trafic_df = pd.read_csv('./data/visualizations_df/mean_traffic_df.csv')
