@@ -142,6 +142,14 @@
         "documentation": {}
     },
     {
+        "label": "Age_effect_tab",
+        "importPath": "components.weather_Time_taken.Age_effect_tab",
+        "description": "components.weather_Time_taken.Age_effect_tab",
+        "isExtraImport": true,
+        "detail": "components.weather_Time_taken.Age_effect_tab",
+        "documentation": {}
+    },
+    {
         "label": "Tee",
         "kind": 6,
         "importPath": ".venv.Scripts.pywin32_postinstall",
@@ -391,6 +399,15 @@
         "description": ".venv.Scripts.pywin32_testall",
         "peekOfCode": "failures = []\n# Run a test using subprocess and wait for the result.\n# If we get an returncode != 0, we know that there was an error, but we don't\n# abort immediately - we run as many tests as we can.\ndef run_test(script, cmdline_extras):\n    dirname, scriptname = os.path.split(script)\n    # some tests prefer to be run from their directory.\n    cmd = [sys.executable, \"-u\", scriptname] + cmdline_extras\n    print(\"--- Running '%s' ---\" % script)\n    sys.stdout.flush()",
         "detail": ".venv.Scripts.pywin32_testall",
+        "documentation": {}
+    },
+    {
+        "label": "Age_effect_tab",
+        "kind": 2,
+        "importPath": "components.weather_Time_taken.Age_effect_tab",
+        "description": "components.weather_Time_taken.Age_effect_tab",
+        "peekOfCode": "def Age_effect_tab() : \n    st.write('Here, we will explore how age affects delivery time, working hours, and ratings.')\n    age_df = pd.read_csv('./data/visualizations_df/age_df.csv')\n    st.subheader('Sample of Age Raw Data Frame')\n    st.dataframe(age_df.sample(frac=.001))\n    st.subheader('here we show the colaboration between age and rating')\n    age_vs_rating_df = pd.DataFrame(age_df.groupby('Delivery_person_Age')['Delivery_person_Ratings'].mean()).reset_index()\n    rate_age_fig = px.line(age_vs_rating_df , 'Delivery_person_Age' , 'Delivery_person_Ratings')\n    st.plotly_chart(rate_age_fig) \n    st.info(\"\"\" ",
+        "detail": "components.weather_Time_taken.Age_effect_tab",
         "documentation": {}
     },
     {

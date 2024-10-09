@@ -4,6 +4,7 @@ import plotly.express as px
 import datetime
 from components.weather_Time_taken.weather_effect_tab import weather_effects_tab
 from components.weather_Time_taken.Traffic_effect_tab import Traffic_effect_tab
+from components.weather_Time_taken.Age_effect_tab import Age_effect_tab
 
 
 st.header('Exploring Food Delivery Insights through Interactive Data Visualizations')
@@ -53,7 +54,7 @@ if st.sidebar.toggle('Data Set Relations'):
         Traffic_effect_tab()
 
     with tab3:
-        st.write("Relation between age and date")
+       Age_effect_tab()
 
     with tab4:
         st.write("Date effect on the number of orders")
