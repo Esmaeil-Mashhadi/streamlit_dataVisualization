@@ -44,7 +44,7 @@ if st.sidebar.toggle('check'):
 
 if st.sidebar.toggle('Data Set Relations'):
     st.write('relation menu')
-    tab1, tab2, tab3, tab4, tab5 = st.tabs(["Weather", "Traffic", "Age", "Date", "Festival"])
+    tab1, tab2, tab3 = st.tabs(["Weather", "Traffic", "Age"])
 
     with tab1:
         weather_effects_tab()
@@ -55,11 +55,7 @@ if st.sidebar.toggle('Data Set Relations'):
     with tab3:
        Age_effect_tab()
 
-    with tab4:
-        st.write("Date effect on the number of orders")
 
-    with tab5:
-        st.write("Age interest in festivals")
 
 
 

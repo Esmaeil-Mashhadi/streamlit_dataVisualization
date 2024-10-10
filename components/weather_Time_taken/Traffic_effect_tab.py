@@ -57,6 +57,33 @@ def Traffic_effect_tab():
     and while the number of total orders is high, it is still lower than during the dinner period.
     """)
 
+    st.subheader('lets see if trafic spread in month')
+
+    date_df = pd.read_csv('./data/visualizations_df/date_df.csv')
+    st.write('sample raw data')
+    st.dataframe(date_df.sample(frac=.001))
+    
+    st.subheader('lets see total orders on each time period')
+    
+    count_df = date_df.groupby(['Order_Date_period', 'Road_traffic_density']).size().reset_index(name='count')
+    pivot_df = pd.DataFrame(count_df.pivot_table(index='Order_Date_period', columns='Road_traffic_density', values='count')).reset_index()
+    st.write('sample data frame')
+    st.dataframe(pivot_df) 
+    st.write('chart')
+    fig =px.bar(pivot_df,
+                x=['High', 'Jam', 'Low', 'Medium'],
+                y='Order_Date_period' ,
+                color_discrete_map={'High': 'orange', 'Jam': 'red', 'Low': 'green', 'Medium': 'blue'},  # Custom colors for categories
+                orientation='h')
+    st.plotly_chart(fig)
+    st.info("""
+    My understanding is that we have significantly high traffic congestion, 
+    which affects delivery times. Bikes that perform better in heavy traffic 
+    can help increase customer satisfaction.
+    """)
+
+
+
 
 
     
