@@ -406,7 +406,7 @@
         "kind": 2,
         "importPath": "components.weather_Time_taken.Age_effect_tab",
         "description": "components.weather_Time_taken.Age_effect_tab",
-        "peekOfCode": "def Age_effect_tab() : \n    st.write('Here, we will explore how age affects delivery time, working hours, and ratings.')\n    age_df = pd.read_csv('./data/visualizations_df/age_df.csv')\n    st.subheader('Sample of Age Raw Data Frame')\n    st.dataframe(age_df.sample(frac=.001))\n    st.subheader('here we show the colaboration between age and rating')\n    age_vs_rating_df = pd.DataFrame(age_df.groupby('Delivery_person_Age')['Delivery_person_Ratings'].mean()).reset_index()\n    rate_age_fig = px.line(age_vs_rating_df , 'Delivery_person_Age' , 'Delivery_person_Ratings')\n    st.plotly_chart(rate_age_fig) \n    st.info(\"\"\" ",
+        "peekOfCode": "def Age_effect_tab() : \n    st.write('Here, we will explore how age affects delivery time, working hours, and ratings.')\n    age_df = pd.read_csv('./data/visualizations_df/age_df.csv')\n    st.subheader('Sample of Age Raw Data Frame')\n    st.dataframe(age_df.sample(frac=.001))\n    st.subheader('here we show the colaboration between age and rating')\n    age_vs_rating_df = pd.DataFrame(age_df.groupby('Delivery_person_Age')['Delivery_person_Ratings'].mean()).reset_index()\n    rate_age_fig = px.line(age_vs_rating_df , 'Delivery_person_Age' , 'Delivery_person_Ratings')\n    st.plotly_chart(rate_age_fig) \n    st.subheader('now lets see how is age collaboration with delivery time')",
         "detail": "components.weather_Time_taken.Age_effect_tab",
         "documentation": {}
     },

@@ -35,7 +35,6 @@ if st.sidebar.toggle('show map') :
      )
     
 
-
 if st.sidebar.toggle('check'): 
     st.write(food_df['Order_Date'].min())
     st.write(food_df['Order_Date'].max())
