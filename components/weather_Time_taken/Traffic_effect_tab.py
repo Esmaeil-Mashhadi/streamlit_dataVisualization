@@ -71,16 +71,19 @@ def Traffic_effect_tab():
     st.dataframe(pivot_df) 
     st.write('chart')
     fig =px.bar(pivot_df,
-                x=['High', 'Jam', 'Low', 'Medium'],
+                x=['Medium' ,'High' , "Low" ,'Jam'],
                 y='Order_Date_period' ,
-                color_discrete_map={'High': 'orange', 'Jam': 'red', 'Low': 'green', 'Medium': 'blue'},  # Custom colors for categories
+                color_discrete_map={'High': 'orange', 'Jam': 'red', 'Low': 'green', 'Medium': 'blue'},
                 orientation='h')
+    fig.update_xaxes(title_text='Number of Orders')
     st.plotly_chart(fig)
     st.info("""
-    My understanding is that we have significantly high traffic congestion, 
-    which affects delivery times. Bikes that perform better in heavy traffic 
-    can help increase customer satisfaction.
+    The chart illustrates the relationship between traffic density and the number of orders. 
+    It shows that higher traffic corresponds with an increase in order volume, particularly during lunch and dinner hours. 
+    By improving our delivery efficiency during peak traffic times, we can enhance customer satisfaction and reach more customers. 
+    Managing to deliver promptly during these busy periods is crucial for maintaining service quality and customer loyalty.
     """)
+
 
 
 
