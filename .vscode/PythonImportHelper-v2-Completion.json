@@ -126,12 +126,38 @@
         "documentation": {}
     },
     {
+        "label": "matplotlib",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "matplotlib",
+        "description": "matplotlib",
+        "detail": "matplotlib",
+        "documentation": {}
+    },
+    {
         "label": "datetime",
         "kind": 6,
         "isExtraImport": true,
         "importPath": "datetime",
         "description": "datetime",
         "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "folium",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "folium",
+        "description": "folium",
+        "detail": "folium",
+        "documentation": {}
+    },
+    {
+        "label": "folium_static",
+        "importPath": "streamlit_folium",
+        "description": "streamlit_folium",
+        "isExtraImport": true,
+        "detail": "streamlit_folium",
         "documentation": {}
     },
     {
@@ -156,6 +182,14 @@
         "description": "components.weather_Time_taken.Age_effect_tab",
         "isExtraImport": true,
         "detail": "components.weather_Time_taken.Age_effect_tab",
+        "documentation": {}
+    },
+    {
+        "label": "show_map",
+        "importPath": "components.weather_Time_taken.Show_map",
+        "description": "components.weather_Time_taken.Show_map",
+        "isExtraImport": true,
+        "detail": "components.weather_Time_taken.Show_map",
         "documentation": {}
     },
     {
@@ -420,6 +454,15 @@
         "documentation": {}
     },
     {
+        "label": "show_map",
+        "kind": 2,
+        "importPath": "components.weather_Time_taken.Show_map",
+        "description": "components.weather_Time_taken.Show_map",
+        "peekOfCode": "def show_map():\n    st.write('raw data set sample')\n    food_df = pd.read_csv('./data/clean_data.csv')\n    st.info(\"\"\"\n             In this section, you can input a date to display travel map lines \n             based on the selected date.\n    \"\"\")\n    date_picked =st.date_input('pick a date', \n    value=datetime.date(2022 , 3, 1) ,\n    min_value=datetime.date(2022, 3, 1),",
+        "detail": "components.weather_Time_taken.Show_map",
+        "documentation": {}
+    },
+    {
         "label": "Traffic_effect_tab",
         "kind": 2,
         "importPath": "components.weather_Time_taken.Traffic_effect_tab",
@@ -438,20 +481,11 @@
         "documentation": {}
     },
     {
-        "label": "load_dataFrame",
-        "kind": 2,
-        "importPath": "main",
-        "description": "main",
-        "peekOfCode": "def load_dataFrame():\n    return pd.read_csv(\"./data/clean_data.csv\")\nfood_df= load_dataFrame() \ndef display_map(location_data):\n    pass\nst.sidebar.title('Options')  \nif st.sidebar.toggle('show whole data set'): \n    st.dataframe(food_df)\nif st.sidebar.toggle('Data Interaction Overview'):\n    st.write('relation menu')",
-        "detail": "main",
-        "documentation": {}
-    },
-    {
         "label": "display_map",
         "kind": 2,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "def display_map(location_data):\n    pass\nst.sidebar.title('Options')  \nif st.sidebar.toggle('show whole data set'): \n    st.dataframe(food_df)\nif st.sidebar.toggle('Data Interaction Overview'):\n    st.write('relation menu')\n    tab1, tab2, tab3 = st.tabs([\"Weather Effects\", \"Traffic Impact\", \"Age Correlations\"])\n    with tab1: \n        weather_effects_tab()",
+        "peekOfCode": "def display_map(location_data):\n    pass\nst.sidebar.title('Options')  \nif st.sidebar.toggle('Data Interaction Overview' , open):\n    st.write('relation menu')\n    tab1, tab2, tab3 = st.tabs([\"Weather Effects\", \"Traffic Impact\", \"Age Correlations\"])\n    with tab1: \n        weather_effects_tab()\n    with tab2:\n        Traffic_effect_tab()",
         "detail": "main",
         "documentation": {}
     }
