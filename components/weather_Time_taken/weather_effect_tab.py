@@ -16,10 +16,19 @@ def weather_effects_tab():
                       x='Time_taken(min)', y='Weatherconditions',
                       text='total_orders', color_continuous_scale='teal' , color='total_orders', orientation='h')
         st.plotly_chart(fig)
+
+
         st.info("the correlation between weather conditions and total orders")
-        fig = px.bar(weather_df ,x='total_orders',  y='Time_taken(min)' ,
-                     color_continuous_scale='teal' , color='Weatherconditions' )
+        fig = px.scatter(weather_df,
+                 x='Time_taken(min)', 
+                 y='total_orders', 
+                 color='Weatherconditions',
+                 orientation='h'
+                )
+        fig.update_traces(marker=dict(size=40, symbol='circle'))
+
         st.plotly_chart(fig)
+
              
 
         with st.expander('Read my understanding of the chart'): 
