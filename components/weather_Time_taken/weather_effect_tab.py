@@ -4,12 +4,17 @@ import plotly.express as px
 
 @st.cache_data
 def weather_effects_tab():
-        st.write("Weather effects on food delivery time")
+        st.write("""
+            In this step, we clean the data and create a customized DataFrame.
+            This DataFrame calculates both the average total orders and the time taken 
+            under each weather condition.
+        """)
+
         weather_df=pd.read_csv('./data/visualizations_df/weather_timeTaken.csv')
         st.dataframe(weather_df)
         fig = px.bar(weather_df ,
                       x='Time_taken(min)', y='Weatherconditions',
-                      text='total_orders', color_continuous_scale='teal' , color='Time_taken(min)', orientation='h')
+                      text='total_orders', color_continuous_scale='teal' , color='total_orders', orientation='h')
         st.plotly_chart(fig)
         st.info("the correlation between weather conditions and total orders")
         fig = px.bar(weather_df ,x='total_orders',  y='Time_taken(min)' ,

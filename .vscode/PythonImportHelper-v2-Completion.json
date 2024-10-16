@@ -415,7 +415,7 @@
         "kind": 2,
         "importPath": "components.weather_Time_taken.Age_effect_tab",
         "description": "components.weather_Time_taken.Age_effect_tab",
-        "peekOfCode": "def Age_effect_tab() : \n    st.write('Here, we will explore how age affects delivery time, working hours, and ratings.')\n    age_df = pd.read_csv('./data/visualizations_df/age_df.csv')\n    st.subheader('Sample of Age Raw Data Frame')\n    st.dataframe(age_df.sample(frac=.001))\n    st.subheader(\"Let's see the number of employees within different age groups in this business.\")\n    Employees_df= age_df.drop_duplicates(subset='ID')\n    Employees_df.replace(\"NaN \" , np.nan , inplace=True)\n    Employees_df.dropna(inplace=True)\n    bins =[20 , 25 , 30 , 35, 40]",
+        "peekOfCode": "def Age_effect_tab() : \n    st.write(\"\"\"\n            In this section, we will explore the impact of age on delivery time, \n            working hours, and customer ratings.\n    \"\"\") \n    age_df = pd.read_csv('./data/visualizations_df/age_df.csv')\n    st.subheader('Sample of Age Raw Data Frame')\n    st.dataframe(age_df.sample(frac=.001))\n    st.subheader(\"\"\"\n        Let's examine the distribution of employees across different age groups within this business.\"\"\")",
         "detail": "components.weather_Time_taken.Age_effect_tab",
         "documentation": {}
     },
@@ -424,7 +424,7 @@
         "kind": 2,
         "importPath": "components.weather_Time_taken.Traffic_effect_tab",
         "description": "components.weather_Time_taken.Traffic_effect_tab",
-        "peekOfCode": "def Traffic_effect_tab(): \n    st.write('collaboration of trafic , time periods and ordercount')\n    mean_trafic_df = pd.read_csv('./data/visualizations_df/mean_traffic_df.csv')\n    traffic_df = pd.read_csv('./data/visualizations_df/traffic.csv')\n    st.write('mean trafic data frame')\n    st.dataframe(mean_trafic_df) \n    st.info('delivery time collaboration with trafic density ,as expceted lower trafic density makes delivery time faster')\n    fig = px.bar(mean_trafic_df , x='Road_traffic_density' , y='Time_taken(min)')\n    st.plotly_chart(fig)\n    st.info(\"\"\"",
+        "peekOfCode": "def Traffic_effect_tab():  \n    st.write(\"\"\"\n        This section focuses on the collaboration of traffic patterns, time periods, \n        and order counts, providing insights into how these factors interact \n        and influence one another. \n    \"\"\")\n    mean_trafic_df = pd.read_csv('./data/visualizations_df/mean_traffic_df.csv')\n    traffic_df = pd.read_csv('./data/visualizations_df/traffic.csv')\n    st.write('mean trafic data frame')\n    st.dataframe(mean_trafic_df) ",
         "detail": "components.weather_Time_taken.Traffic_effect_tab",
         "documentation": {}
     },
@@ -433,7 +433,7 @@
         "kind": 2,
         "importPath": "components.weather_Time_taken.weather_effect_tab",
         "description": "components.weather_Time_taken.weather_effect_tab",
-        "peekOfCode": "def weather_effects_tab():\n        st.write(\"Weather effects on food delivery time\")\n        weather_df=pd.read_csv('./data/visualizations_df/weather_timeTaken.csv')\n        st.dataframe(weather_df)\n        fig = px.bar(weather_df ,\n                      x='Time_taken(min)', y='Weatherconditions',\n                      text='total_orders', color_continuous_scale='teal' , color='Time_taken(min)', orientation='h')\n        st.plotly_chart(fig)\n        st.info(\"the correlation between weather conditions and total orders\")\n        fig = px.bar(weather_df ,x='total_orders',  y='Time_taken(min)' ,",
+        "peekOfCode": "def weather_effects_tab():\n        st.write(\"\"\"\n            In this step, we clean the data and create a customized DataFrame.\n            This DataFrame calculates both the average total orders and the time taken \n            under each weather condition.\n        \"\"\")\n        weather_df=pd.read_csv('./data/visualizations_df/weather_timeTaken.csv')\n        st.dataframe(weather_df)\n        fig = px.bar(weather_df ,\n                      x='Time_taken(min)', y='Weatherconditions',",
         "detail": "components.weather_Time_taken.weather_effect_tab",
         "documentation": {}
     },
@@ -442,7 +442,7 @@
         "kind": 2,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "def load_dataFrame():\n    return pd.read_csv(\"./data/clean_data.csv\")\nfood_df= load_dataFrame()\ndef display_map(location_data):\n    pass\nst.sidebar.title('Options')  \nif st.sidebar.toggle('show whole data set'): \n    st.dataframe(food_df)\nif st.sidebar.toggle('show map') :\n       st.date_input('pick a date', ",
+        "peekOfCode": "def load_dataFrame():\n    return pd.read_csv(\"./data/clean_data.csv\")\nfood_df= load_dataFrame() \ndef display_map(location_data):\n    pass\nst.sidebar.title('Options')  \nif st.sidebar.toggle('show whole data set'): \n    st.dataframe(food_df)\nif st.sidebar.toggle('Data Interaction Overview'):\n    st.write('relation menu')",
         "detail": "main",
         "documentation": {}
     },
@@ -451,7 +451,7 @@
         "kind": 2,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "def display_map(location_data):\n    pass\nst.sidebar.title('Options')  \nif st.sidebar.toggle('show whole data set'): \n    st.dataframe(food_df)\nif st.sidebar.toggle('show map') :\n       st.date_input('pick a date', \n       value=datetime.date(2022 , 3, 1) ,\n       min_value=datetime.date(2022, 3, 1),\n       max_value=datetime.date(2022, 3, 31) ",
+        "peekOfCode": "def display_map(location_data):\n    pass\nst.sidebar.title('Options')  \nif st.sidebar.toggle('show whole data set'): \n    st.dataframe(food_df)\nif st.sidebar.toggle('Data Interaction Overview'):\n    st.write('relation menu')\n    tab1, tab2, tab3 = st.tabs([\"Weather Effects\", \"Traffic Impact\", \"Age Correlations\"])\n    with tab1: \n        weather_effects_tab()",
         "detail": "main",
         "documentation": {}
     }

@@ -4,9 +4,13 @@ import plotly.express as px
 import seaborn as sns 
 import matplotlib.pyplot as plt 
 
-@st.cache_data
-def Traffic_effect_tab(): 
-    st.write('collaboration of trafic , time periods and ordercount')
+def Traffic_effect_tab():  
+    st.write("""
+        This section focuses on the collaboration of traffic patterns, time periods, 
+        and order counts, providing insights into how these factors interact 
+        and influence one another. 
+    """)
+
     mean_trafic_df = pd.read_csv('./data/visualizations_df/mean_traffic_df.csv')
     traffic_df = pd.read_csv('./data/visualizations_df/traffic.csv')
     st.write('mean trafic data frame')
@@ -34,9 +38,9 @@ def Traffic_effect_tab():
     st.pyplot(fig)
 
     st.info("""
-    As observed, scooters and electric scooters perform better in higher traffic density situations, leading to improved delivery times. 
-    By replacing motorcycles with scooters, we can potentially enhance delivery efficiency. 
-    However, it is essential to consider other factors that may also impact delivery performance.
+        As observed, scooters and electric scooters perform better in higher traffic density situations, leading to improved delivery times. 
+        By replacing motorcycles with scooters, we can potentially enhance delivery efficiency. 
+        However, it is essential to consider other factors that may also impact delivery performance.
     """)
 
     st.subheader("Traffic and Order Density Analysis")
@@ -57,7 +61,10 @@ def Traffic_effect_tab():
     and while the number of total orders is high, it is still lower than during the dinner period.
     """)
 
-    st.subheader('lets see if trafic spread in month')
+    st.write(""" 
+        In this section, I created a time period for each order to analyze 
+        how different features interact during specific time intervals.
+    """)
 
     date_df = pd.read_csv('./data/visualizations_df/date_df.csv')
     st.write('sample raw data')
@@ -82,7 +89,7 @@ def Traffic_effect_tab():
     It shows that higher traffic corresponds with an increase in order volume, particularly during lunch and dinner hours. 
     By improving our delivery efficiency during peak traffic times, we can enhance customer satisfaction and reach more customers. 
     Managing to deliver promptly during these busy periods is crucial for maintaining service quality and customer loyalty.
-    """)
+    """) 
 
 
 

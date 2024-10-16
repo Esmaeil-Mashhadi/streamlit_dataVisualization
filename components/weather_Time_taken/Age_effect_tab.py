@@ -8,12 +8,17 @@ import numpy as np
 
 @st.cache_data 
 def Age_effect_tab() : 
-    st.write('Here, we will explore how age affects delivery time, working hours, and ratings.')
+    st.write("""
+            In this section, we will explore the impact of age on delivery time, 
+            working hours, and customer ratings.
+    """) 
+
     age_df = pd.read_csv('./data/visualizations_df/age_df.csv')
     st.subheader('Sample of Age Raw Data Frame')
     st.dataframe(age_df.sample(frac=.001))
 
-    st.subheader("Let's see the number of employees within different age groups in this business.")
+    st.subheader("""
+        Let's examine the distribution of employees across different age groups within this business.""")
     Employees_df= age_df.drop_duplicates(subset='ID')
     Employees_df.replace("NaN " , np.nan , inplace=True)
     Employees_df.dropna(inplace=True)
