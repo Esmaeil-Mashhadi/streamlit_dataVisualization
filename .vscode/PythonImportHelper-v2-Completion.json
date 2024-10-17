@@ -193,6 +193,14 @@
         "documentation": {}
     },
     {
+        "label": "st_navbar",
+        "importPath": "streamlit_navigation_bar",
+        "description": "streamlit_navigation_bar",
+        "isExtraImport": true,
+        "detail": "streamlit_navigation_bar",
+        "documentation": {}
+    },
+    {
         "label": "Tee",
         "kind": 6,
         "importPath": ".venv.Scripts.pywin32_postinstall",
@@ -481,11 +489,11 @@
         "documentation": {}
     },
     {
-        "label": "display_map",
-        "kind": 2,
+        "label": "page",
+        "kind": 5,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "def display_map(location_data):\n    pass\nst.sidebar.title('Options')  \nif st.sidebar.toggle('Data Interaction Overview' , open):\n    st.write('relation menu')\n    tab1, tab2, tab3 = st.tabs([\"Weather Effects\", \"Traffic Impact\", \"Age Correlations\"])\n    with tab1: \n        weather_effects_tab()\n    with tab2:\n        Traffic_effect_tab()",
+        "peekOfCode": "page = st_navbar([\"Data Analytics Overview\", \"Geospatial Map\", \"AI Predictions\", \"Source Code & Contact\"])\nif page == 'Data Analytics Overview' : \n    st.subheader('Data Analytics Overview') \n    tab1, tab2, tab3 = st.tabs([\"Weather Effects\", \"Traffic Impact\", \"Age Correlations\"])    \n    with tab1: \n        weather_effects_tab()\n    with tab2:\n        Traffic_effect_tab()\n    with tab3:\n       Age_effect_tab()",
         "detail": "main",
         "documentation": {}
     }
