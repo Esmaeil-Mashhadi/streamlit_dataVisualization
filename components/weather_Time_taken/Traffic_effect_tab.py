@@ -4,6 +4,7 @@ import plotly.express as px
 import seaborn as sns 
 import matplotlib.pyplot as plt 
 
+st.cache_data
 def Traffic_effect_tab():  
     st.write("""
         This section focuses on the collaboration of traffic patterns, time periods, 

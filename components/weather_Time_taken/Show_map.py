@@ -6,6 +6,7 @@ import datetime
 import folium 
 from streamlit_folium import folium_static
 
+st.cache_data
 def show_map():
     st.write('raw data set sample')
     food_df = pd.read_csv('./data/clean_data.csv')
